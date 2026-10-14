@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telas de Login - Layout Aluno</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #00b4db, #0083b0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container-principal {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card-login {
+            background-color: #ffffff;
+            width: 320px;
+            height: 560px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .topo-azul {
+            background: linear-gradient(to bottom, #1e3c72, #2a5298);
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            border-bottom-left-radius: 50% 20px;
+            border-bottom-right-radius: 50% 20px;
+            padding: 20px;
+        }
+
+        .topo-azul h2 {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        .topo-azul p {
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
+        .logo {
+            background-color: rgba(255, 255, 255, 0.2);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            border: 2px solid white;
+        }
+
+        .conteudo {
+            padding: 30px 25px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .centralizado {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .campo-input {
+            margin-bottom: 15px;
+        }
+
+        .campo-input input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 25px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .opcoes {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .link-esqueceu {
+            display: block;
+            text-align: right;
+            font-size: 0.8rem;
+            color: #666;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .btn-azul {
+            background: linear-gradient(to right, #00b4db, #0083b0);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 180, 219, 0.3);
+        }
+
+        .btn-opacidade {
+            background-color: #2a5298;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 25px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-branco {
+            background-color: white;
+            color: #2a5298;
+            border: 2px solid #2a5298;
+            width: 100%;
+            padding: 12px;
+            border-radius: 25px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .texto-social {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #999;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        .redes-sociais {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .icone-social {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #333;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .texto-touch {
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 30px;
+        }
+
+        .icone-digital {
+            font-size: 2.5rem;
+            color: #00b4db;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .texto-touch-sub {
+            font-size: 0.7rem;
+            color: #999;
+        }
+
+        .rodape-card {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to right, #2a5298, #1e3c72);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.8rem;
+        }
+
+        .rodape-card a {
+            color: #00b4db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Código Extra CSS Grid do Primeiro Print */
+        .grid-container {
+            display: none; /* Ocultado para focar no layout dos cards de login */
+            background-color: #bffffa;
+            grid-template-columns: 1 / span 4;
+            grid-template-rows: 1;
+        }
+        .sidebar { background-color: #00ffff; }
+        .principal { background-color: #a8f5ff; }
+        .content-1 { background-color: #a6ffe8; }
+        .content-2 { background-color: #7affdf; }
+        .content-3 { background-color: #8affbd; }
+        .rodape { background-color: #1bdfb2; }
+    </style>
+</head>
+<body>
+
+    <div class="container-principal">
+
+        <!-- CARD 1: LOGIN PADRÃO -->
+        <div class="card-login">
+            <div class="topo-azul">
+                <div class="logo"> ✓ </div>
+            </div>
+            <div class="conteudo">
+                <div class="campo-input">
+                    <input type="text" placeholder="Nome de usuário">
+                </div>
+                <div class="campo-input">
+                    <input type="password" placeholder="Senha">
+                </div>
+                <div class="opcoes">
+                    <label><input type="checkbox"> Lembrar senha</label>
+                </div>
+                <button class="btn-azul">Entrar</button>
+                <a href="#" class="link-esqueceu">Esqueceu sua senha?</a>
+
+                <p class="texto-social">Entrar com redes sociais</p>
+                <div class="redes-sociais">
+                    <span class="icone-social">f</span>
+                    <span class="icone-social">t</span>
+                    <span class="icone-social">in</span>
+                </div>
+            </div>
+            <div class="rodape-card">
+                Não tem uma conta? <a href="#">Cadastre-se</a>
+            </div>
+        </div>
+
+        <!-- CARD 2: LOGIN BOAS-VINDAS / TOUCH ID -->
+        <div class="card-login">
+            <div class="topo-azul centralizado">
+                <div class="logo"> ✓ </div>
+                <h2>NOME DA EMPRESA</h2>
+                <p>SLOGAN AQUI</p>
+            </div>
+            <div class="conteudo centralizado">
+                <button class="btn-opacidade">Entrar</button>
+                <button class="btn-branco">Inscreva-se</button>
+
+                <p class="texto-touch">Agora! Login rápido usando o Touch ID</p>
+                <div class="icone-digital"> d </div>
+                <p class="texto-touch-sub">Usar Touch ID</p>
+            </div>
+        </div>
+
+        <!-- CARD 3: CADASTRO -->
+        <div class="card-login">
+            <div class="topo-azul">
+                <div class="logo"> ✓ </div>
+            </div>
+            <div class="conteudo">
+                <div class="campo-input">
+                    <input type="text" placeholder="Nome de usuário">
+                </div>
+                <div class="campo-input">
+                    <input type="email" placeholder="E-mail">
+                </div>
+                <div class="campo-input">
+                    <input type="password" placeholder="Senha">
+                </div>
+                <div class="opcoes">
+                    <label><input type="checkbox"> Aceitar os Termos e Condições</label>
+                </div>
+                <button class="btn-azul">Inscreva-se</button>
+            </div>
+            <div class="rodape-card">
+                Já tem uma conta? <a href="#">Entrar</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
